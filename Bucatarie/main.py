@@ -1,6 +1,5 @@
 from src.bucatarie import Bucatarie
 from src.produsfinal import ProdusFinal
-from src.reteta import Reteta
 
 a = Bucatarie("Alexandra")
 
@@ -8,9 +7,11 @@ request = eval(input("Alegeti:\n "
                      "1 - Vizualizare inventar \n "
                      "2 - Adaugati in inventar din lista de cumparaturi\n "
                      "3 - Adaugati in inventar ingrediente manual\n "
-                     "4 - Adaugati o reteta\n"
+                     "4 - Adaugati o reteta\n "
+                     "5 - Creati un produs final\n "
                      ">>>"))
-# vizualizarea inventarului
+
+# Vizualizarea inventarului
 if request == 1:
     a.arataInventar()
 
@@ -46,6 +47,13 @@ elif request == 4:
         l.append(ingredientCantitate)
         a.creeazaReteta(numeReteta, l)
     print("Reteta pentru clatite a fost adaugata cu succes!")
+
+# Incercam sa cream un produs final
+elif request == 5:
+    produs = input("Introduceti numele produsului: ")
+    p = ProdusFinal()
+    p.createProduct(produs)
+
 else:
     pass
 

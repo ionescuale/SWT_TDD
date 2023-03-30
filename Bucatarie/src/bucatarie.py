@@ -49,6 +49,3 @@ class Bucatarie:
         filename = 'data/' + numeReteta + '.pickle'
         with open(filename, 'wb') as f:
             pickle.dump(reteta, f)
-
-
-
