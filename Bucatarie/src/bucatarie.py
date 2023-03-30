@@ -46,7 +46,7 @@ class Bucatarie:
 
     def creeazaReteta(self, numeReteta, lista):
         reteta = lista
-        filename = 'data/'+numeReteta + '.pickle'
+        filename = 'data/' + numeReteta + '.pickle'
         with open(filename, 'wb') as f:
             pickle.dump(reteta, f)
 
