@@ -12,9 +12,11 @@ class ProdusFinal(Reteta):
         # salvam n flag care ne spune daca am avut ingrediente care nu au fost gasite in inventar, sau nu era cantitate suficienta
         # daca flagul este pe true, atunci facem update si in fisiserul inventar, cconsiderand ca produsul final a fost facut
         self.retetaAleasa(numeReteta)
+        Bucatarie.loadFromFile()
         flag_updateInventar = True
+
         for item in self.reteta.keys():
-            if item in Bucatarie.inventar.keys():
+            if item in Bucatarie.inventar:
                 if self.reteta[item] <= Bucatarie.inventar[item]:
                     Bucatarie.scadeInventar(item, self.reteta[item])
                 else:
@@ -25,6 +27,9 @@ class ProdusFinal(Reteta):
                 print(f'Nu aveti ingredientul {item} in inventar')
                 flag_updateInventar = False
                 break
+        else:
+            flag_updateInventar = False
+
         if flag_updateInventar == True:
             Bucatarie.storeInFile()
             print(f'produsul {numeReteta} a fost creat cu succes!')
