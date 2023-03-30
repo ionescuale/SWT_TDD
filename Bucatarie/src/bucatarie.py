@@ -1,4 +1,5 @@
 import pickle
+import os
 
 class Bucatarie:
     def __init__(self, nume):
@@ -7,12 +8,12 @@ class Bucatarie:
 
 
     def storeInFile(self):
-        with open('inventar.pickle', 'wb') as f:
+        with open('data/inventar.pickle', 'wb') as f:
             pickle.dump(self.inventar, f)
 
 
     def loadFromFile(self):
-        with open('inventar.pickle', 'rb') as f:
+        with open('data/inventar.pickle', 'rb') as f:
             ingredient = pickle.load(f)
             self.inventar.update(ingredient)
 
@@ -23,7 +24,8 @@ class Bucatarie:
 
 
     def adaugaIngredient(self, ingredient, cantitate):
-        self.loadFromFile()
+        if os.path.exists('data/inventar.pickle'):
+            self.loadFromFile()
         if ingredient in self.inventar.keys():
             self.inventar[ingredient] += cantitate
         else:

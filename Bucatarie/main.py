@@ -45,17 +45,16 @@ elif request == 4:
     for i in range(numarIngrediente):
         ingredientCantitate = input(">>>")
         l.append(ingredientCantitate)
-        a.creeazaReteta(numeReteta, l)
+    a.creeazaReteta(numeReteta, l)
     print("Reteta pentru clatite a fost adaugata cu succes!")
 
 # Incercam sa cream un produs final
 elif request == 5:
     produs = input("Introduceti numele produsului: ")
-    p = ProdusFinal()
-    p.createProduct(produs)
+    p = ProdusFinal(produs)
+    print(p)
+    p.createProduct(produs, a)
 
 else:
     pass
 
-
-# a.creeazaReteta("Clatite", [("faina", 200), ("oua", 4), ("lapte", 200)])
