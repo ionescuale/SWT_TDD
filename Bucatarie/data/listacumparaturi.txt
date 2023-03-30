@@ -1,0 +1,6 @@
+oua 6
+faina 2000
+zahar 150
+lapte 500
+ulei 1000
+mere 5
